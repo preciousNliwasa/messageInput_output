@@ -1,21 +1,35 @@
-from fastapi import FastAPI
-import sklearn
+from flask import Flask, request
+from twilio.twiml.messaging_response import MessagingResponse
+import requests
 
-app = FastAPI(title = 'Message Input/Output')
 
-#model = joblib.load('chatbot.joblib')
-#vectorizer = joblib.load('vectorizer.joblib')
+app = Flask(__name__)
 
-@app.get('/',tags = ['Home'])
-async def home():
-    return 'welcome'
 
-#@app.get('/text_category',tags = ['Text Category'])
-#async def text_category(message : str):
-    
-#    message_transform = vectorizer.transform([message])
-    
-#    predicted = model.predict(message_transform)
-    
-#    return predicted[0]
+GOOD_BOY_URL = (
+    "https://images.unsplash.com/photo-1518717758536-85ae29035b6d?ixlib=rb-1.2.1"
+    "&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+)
 
+
+@app.route("/whatsapp", methods=["GET", "POST"])
+def reply_whatsapp():
+
+    try:
+        num_media = int(request.values.get("NumMedia"))
+        inc = request.values.get("Body","").lower()
+        phone_number = request.form.get('From')
+        
+    except (ValueError, TypeError):
+        return "Invalid request: invalid or missing NumMedia parameter", 400
+    response = MessagingResponse()
+    if not num_media:
+        msg = response.message("Send us an image!")
+    else:
+        msg = response.message("Thanks for the image. Here's one for you!")
+        msg.media(GOOD_BOY_URL)
+    return str(response)
+
+
+if __name__ == "__main__":
+    app.run()
