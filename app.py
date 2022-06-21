@@ -6,6 +6,7 @@ import numpy as np
 from io import BytesIO
 from PIL import Image
 import pandas as pd
+from skimage.transform import resize
 
 app = Flask(__name__)                    
 
