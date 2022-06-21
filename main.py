@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-#import joblib
+import sklearn
 
 app = FastAPI(title = 'Message Input/Output')
 
