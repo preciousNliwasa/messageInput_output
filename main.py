@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-import joblib
+#import joblib
 
 app = FastAPI(title = 'Message Input/Output')
 
