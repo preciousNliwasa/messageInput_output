@@ -107,7 +107,7 @@ def reply_whatsapp():
               
           else:
             # registering a new number in english
-            requests.post(url = 'https://lkdzzx.deta.dev/language_change/',params = {'user_number':phone_number,'lan' : 'english'})
+            requests.post(url = 'https://lkdzzx.deta.dev/language_chaange/',params = {'user_number':phone_number,'lan' : 'english'})
             
           msg = response.message("----------------CHANNEL------------------\n  Use Codes given to choose an option\n----------------------------------------------------- \n GOPU -- Go Public \n GOPR -- Go Private \n --------------------------------------------- \n LANGE -- Change Language")
         
