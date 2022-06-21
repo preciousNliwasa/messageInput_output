@@ -23,7 +23,6 @@ def post_photo(url):
   img = Image.open(BytesIO(rr.content))
   return str(type(img)) + 'was submitted'
 
-from skimage.transform import  resize
 
 @app.route("/whatsapp", methods=["GET", "POST"])
 def reply_whatsapp():
