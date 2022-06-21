@@ -1,7 +1,6 @@
 from flask import Flask,request
 from twilio.twiml.messaging_response import MessagingResponse
 import requests
-import pickle
 import numpy as np
 from io import BytesIO
 from PIL import Image
