@@ -13,7 +13,7 @@ GOOD_BOY_URL = (
 
 @app.route("/")
 def home():
-  return ('welcome')
+    return ('welcome')
 
 @app.route("/whatsapp", methods=["GET", "POST"])
 def reply_whatsapp():
