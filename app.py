@@ -1,7 +1,6 @@
 from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
 import pickle
-import joblib
 
 
 app = Flask(__name__)
@@ -15,13 +14,13 @@ GOOD_BOY_URL = (
 def text_category(message):
     
         
-    #vectorizer = pickle.load(open('vectorizer.pkl','rb'))
+    vectorizer = pickle.load(open('vectorizer.pkl','rb'))
     
-    model = pickle.load(open('modelBot.pickle','rb'))
+    model = pickle.load(open('chatbotModel.pkl','rb'))
     
-    #message_transform = vectorizer.transform([message])
+    message_transform = vectorizer.transform([message])
     
-    predicted = model.predict([message])
+    predicted = model.predict(message_transform)
     
     return predicted[0]
 
@@ -43,7 +42,7 @@ def reply_whatsapp():
     response = MessagingResponse()
     if not num_media:
         
-        msg = response.message(str(text_category(inc)))
+        msg = response.message(text_category(inc))
     else:
         msg = response.message("G,Thanks for the image. Here's one for you!")
         msg.media(GOOD_BOY_URL)
