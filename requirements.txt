@@ -16,3 +16,5 @@ scikit-image==0.18.3
 keras==2.7.0
 Keras-Preprocessing==1.1.2
 keras-vis==0.4.1
+requests==2.22.0
+requests-oauthlib==1.2.0
