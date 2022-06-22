@@ -6,9 +6,8 @@ import pandas as pd
 
 app = Flask(__name__)                    
 
-@app.route('/')
+@app.route("/")
 def home():
-  
   return ('hello')
 
 hh =  ''' @app.route("/whatsapp", methods=["GET", "POST"])
