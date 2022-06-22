@@ -13,7 +13,7 @@ GOOD_BOY_URL = (
 
 def text_category(message):
     
-    vectorizer = pickle.load(open('vectorizer','rb'))
+    vectorizer = pickle.load(open('vectorizer.pkl','rb'))
     model = pickle.load(open('chatbotModel.pkl','rb'))
     
     message_transform = vectorizer.transform([message])
@@ -40,9 +40,9 @@ def reply_whatsapp():
     response = MessagingResponse()
     if not num_media:
         
-        msg = response.message(text_category(inc))
+        msg = response.message(text_category(inc]))
     else:
-        msg = response.message("Thanks for the image. Here's one for you!")
+        msg = response.message("G,Thanks for the image. Here's one for you!")
         msg.media(GOOD_BOY_URL)
     return str(response)
 
