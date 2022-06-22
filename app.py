@@ -11,6 +11,10 @@ GOOD_BOY_URL = (
     "&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
 )
 
+@app.route("/")
+def home():
+    
+    return ('welcome')
 
 @app.route("/whatsapp", methods=["GET", "POST"])
 def reply_whatsapp():
