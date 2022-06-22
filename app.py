@@ -40,7 +40,7 @@ def reply_whatsapp():
     response = MessagingResponse()
     if not num_media:
         
-        msg = response.message(text_category(inc]))
+        msg = response.message(text_category(inc))
     else:
         msg = response.message("G,Thanks for the image. Here's one for you!")
         msg.media(GOOD_BOY_URL)
