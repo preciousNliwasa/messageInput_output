@@ -11,6 +11,14 @@ GOOD_BOY_URL = (
     "&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
 )
 
+def text_category(message):
+    
+    message_transform = vectorizer.transform([message])
+    
+    predicted = model.predict(message_transform)
+    
+    return predicted[0]
+
 @app.route("/")
 def home():
     
