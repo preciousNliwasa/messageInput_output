@@ -13,6 +13,9 @@ GOOD_BOY_URL = (
 
 def text_category(message):
     
+    vectorizer = pickle.load(open('vectorizer','rb'))
+    model = pickle.load(open('chatbotModel.pkl','rb'))
+    
     message_transform = vectorizer.transform([message])
     
     predicted = model.predict(message_transform)
