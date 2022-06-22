@@ -3,7 +3,6 @@ from twilio.twiml.messaging_response import MessagingResponse
 import requests
 import numpy as np
 import pandas as pd
-from skimage.transform import resize
 
 app = Flask(__name__)                    
 
@@ -12,13 +11,7 @@ def home():
   
   return ('hello')
 
-bird = "https://49t059.deta.dev/stream/birdtensor.jpg"
-zuki = "https://49t059.deta.dev/stream/zuki.jpg"
-gh = "https://49t059.deta.dev/stream/gh.jpg"
-know_api= "https://r1lp8q.deta.dev/know/"
-
-
-@app.route("/whatsapp", methods=["GET", "POST"])
+hh =  ''' @app.route("/whatsapp", methods=["GET", "POST"])
 def reply_whatsapp():
 
     try:
@@ -49,7 +42,7 @@ def reply_whatsapp():
         else:
             msg = response.message('we dont understand what you have given bro')
           
-    return str(response)
+    return str(response)'''
  
 if __name__ == '__main__':
   app.run()
