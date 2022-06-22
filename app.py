@@ -21,7 +21,7 @@ def text_category(message):
     
     predicted = model.predict(message_transform)
     
-    return predicted
+    return str(predicted[0])
 
 @app.route("/")
 def home():
